@@ -2,6 +2,7 @@ import { galleryItems } from './gallery-items.js';
 
 // Change code below this line
 
+// Розмітка галереї в єлементі div.gallery
 
 const  listImag = document.querySelector(".gallery");
 
@@ -18,8 +19,10 @@ const addImagesToList = galleryItems
 
 listImag.insertAdjacentHTML('beforeend', addImagesToList)
 
+// делегування слухача на div 
 listImag.addEventListener("click", addOridginalImagToClick)
 
+// відкриття фото з оригінальним розміром з відкриванням модального вікна
 
 function addOridginalImagToClick (e) {
  
@@ -42,9 +45,23 @@ function addOridginalImagToClick (e) {
     />`)
     
     instance.show()
-
  
 }
+
+// закриття модального вікна кнопкою Escape
+
+document.addEventListener("keydown", closeModalOnClickEsc)
+
+function closeModalOnClickEsc (e) {
+        
+    const divForModal = document.querySelector(".basicLightbox");
+            
+    if(e.code === "Escape") {
+        divForModal.remove();
+                    
+    }
+}
+
 
 
 
