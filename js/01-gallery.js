@@ -7,7 +7,8 @@ import { galleryItems } from './gallery-items.js';
 const  listImag = document.querySelector(".gallery");
 
 const addImagesToList = galleryItems
-.map(({preview, description}) => `<a class="gallery__link" href="large-image.jpg">
+.map(({preview, description}) => `<a class="gallery__link"
+ href="large-image.jpg">
 <img
   class="gallery__image"
   src="${preview}"
