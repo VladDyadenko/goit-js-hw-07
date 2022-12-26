@@ -27,7 +27,8 @@ listImag.addEventListener("click", addOridginalImagToClick)
 
 function addOridginalImagToClick (e) {
  
- 
+    console.log(e.target);
+
     e.preventDefault();
      
     
@@ -46,25 +47,29 @@ function addOridginalImagToClick (e) {
     />`)
     
     instance.show()
- 
-}
 
-// закриття модального вікна кнопкою Escape
+    // закриття модального вікна кнопкою Escape
+ document.addEventListener("keydown", closeModalOnClickEsc)
 
-document.addEventListener("keydown", closeModalOnClickEsc)
-
-function closeModalOnClickEsc (e) {
+    function closeModalOnClickEsc (e) {
+     
+        const divForModal = document.querySelector(".basicLightbox");
         
-    const divForModal = document.querySelector(".basicLightbox");
-    
-    
-    if(!e.target.classList.contains("gallery__link")) {
-        return
-    }  else if(e.code === "Escape") {
-        divForModal.remove();
-                    
+        
+        if(!e.target.classList.contains("gallery__link")) {
+            return
+        }  else if(e.code === "Escape") {
+            instance.close()
+            window.removeEventListener("keydown", closeModalOnClickEsc);
+                        
+        }
     }
+   
 }
+
+ 
+
+
 
 
 
