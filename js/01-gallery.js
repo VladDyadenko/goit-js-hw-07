@@ -56,8 +56,11 @@ document.addEventListener("keydown", closeModalOnClickEsc)
 function closeModalOnClickEsc (e) {
         
     const divForModal = document.querySelector(".basicLightbox");
-            
-    if(e.code === "Escape") {
+    
+    
+    if(!e.target.classList.contains("gallery__link")) {
+        return
+    }  else if(e.code === "Escape") {
         divForModal.remove();
                     
     }
